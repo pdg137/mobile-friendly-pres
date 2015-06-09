@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <link href="stylesheet.css" media="all" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <title>Making a web page mobile-friendly</title>
+  </head>
+  <body>
+    <h1>Making a web page mobile-friendly</h1>
+
+    <h2>Resolution</h2>
+
+    <table>
+      <tr><th>pixel</th><td>unit of a display</td></tr>
+      <tr><th>point</th><td>1/72″</td></tr>
+      <tr><th>em</th><td>font size (default: 16px)</td></tr>
+      <tr><th>rem</th><td>“root” font size</td></tr>
+      <tr><th>px</th><td>similar apparent size across device</td></tr>
+      <tr><th>in</th><td>96px</td></tr>
+    </table>
+
+    <h2>Example: 24" 1080p monitor</h2>
+
+    <ul>
+      <li>1920 x 1080 pixels, ~92 pixels/inch
+      <li>1920 x 1080 px
+      <li>1 in = 1.04 inches
+    </ul>
+
+    <h2>Example: iPhone 5</h2>
+
+    <ul>
+      <li>640 x 1136 pixels, ~326 pixels/inch
+      <li>320 x 568 px, ~163 px/inch
+      <li>1 in = 0.59 inches (!)
+    </ul>
+
+    <h2>Zoom</h2>
+
+    <ul>
+      <li>All of the sizes above get scaled when you zoom. (Pinch,
+        Ctrl+plus, etc.)
+      <li>Mobile browsers zoom way out by default!!!</li>
+    </ul>
+
+    <h2>Using relative sizes</h2>
+
+    <h2>Points to make</h2>
+
+    <ul>
+      <li>W3 recommends not using absolute font sizes, but then
+      layered percentages become impossible to manage. Use rem?
+      <li>Don't assume window size is constant.
+    </ul>
+
+  </body>
+</html>
