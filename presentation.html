@@ -5,6 +5,7 @@
     <link href="stylesheet.css" media="all" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <title>Making a web page mobile-friendly</title>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
   </head>
   <body>
     <h1>Making a web page mobile-friendly</h1>
@@ -36,6 +37,8 @@
       <li>1 in = 0.59 inches (!)
     </ul>
 
+    <img src="resolution comparison.png">
+
     <h2>Zoom</h2>
 
     <ul>
@@ -44,6 +47,21 @@
       <li>Mobile browsers zoom way out by default!!!</li>
     </ul>
 
+    <h2>Mobile friendly rule #1: Set the viewport</h2>
+
+    <pre>&lt;meta content='width=device-width, initial-scale=1' name='viewport'&gt;</pre>
+
+    <p>Coming soon:
+      <a href="http://dev.w3.org/csswg/css-device-adapt/">CSS
+      @viewport</a></p>
+
+    <h2>Mobile friendly rule #2: Limit widths</h2>
+
+    <pre>img {
+  max-width: 100%;
+}</pre>
+
+    <h2>Mobile friendly rule #3: Let things wrap</h2>
     <h2>Using relative sizes</h2>
 
     <h2>Points to make</h2>
@@ -54,5 +72,12 @@
       <li>Don't assume window size is constant.
     </ul>
 
+    <h2>Further reading</h2>
+
+    <ul>
+      <li>W3C
+      article: <a href="http://www.w3.org/Style/Examples/007/units.en.html">“EM,
+      PX, PT, CM, IN, ...”</a>
+    </ul>
   </body>
 </html>
