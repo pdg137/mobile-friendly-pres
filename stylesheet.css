@@ -4,9 +4,9 @@ table {
 
 table td,th {
   border: 1px solid gray;
-  padding: 0.2em;
+  padding: 0.4em;
 }
 
-img {
-  max-width: 100%;
+body {
+  font-size: 32px;
 }

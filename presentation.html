@@ -10,6 +10,24 @@
   <body>
     <h1>Making a web page mobile-friendly</h1>
 
+    <h2>What is "mobile"?</h2>
+
+    <table>
+      <tr>
+        <td><img src="iphone_4.jpg"></td>
+        <td><img src="nexus_7.jpg"></td>
+        <td><img src="dell_xps18.jpg"></td>
+      </tr>
+      <tr>
+        <th>iPhone 4</th>
+        <th>Nexus 7</th>
+        <th>Dell XPS 18</th>
+      </tr>
+    </table>
+
+    <p class="clear">Generally, <i>modern</i> devices with <i>small screens</i>
+    and/or <i>touch</i>.</p>
+
     <h2>Resolution</h2>
 
     <table>
@@ -17,7 +35,7 @@
       <tr><th>point</th><td>1/72″</td></tr>
       <tr><th>em</th><td>font size (default: 16px)</td></tr>
       <tr><th>rem</th><td>“root” font size</td></tr>
-      <tr><th>px</th><td>similar apparent size across device</td></tr>
+      <tr><th>px</th><td>similar apparent size across devices</td></tr>
       <tr><th>in</th><td>96px</td></tr>
     </table>
 
@@ -52,17 +70,50 @@
     <pre>&lt;meta content='width=device-width, initial-scale=1' name='viewport'&gt;</pre>
 
     <p>Coming soon:
-      <a href="http://dev.w3.org/csswg/css-device-adapt/">CSS
-      @viewport</a></p>
+      <a href="http://dev.w3.org/csswg/css-device-adapt/">CSS @viewport</a>
+    </p>
 
     <h2>Mobile friendly rule #2: Limit widths</h2>
 
-    <pre>img {
-  max-width: 100%;
-}</pre>
+    <pre>img { max-width: 100%; }</pre>
 
     <h2>Mobile friendly rule #3: Let things wrap</h2>
-    <h2>Using relative sizes</h2>
+
+    <pre>
+table.wrap {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+    </pre>
+
+    <h2>Use relative <i>em</i> sizes</h2>
+
+    <p>
+      Using <i>px</i> sizes is unfriendly.
+    </p>
+
+    <h2>Use high-resolution images</h2>
+
+    <p>
+      1 px ≠ 1 pixel (!!!)<br/>
+      Set size in em?
+    </p>
+
+    <h2>Media queries: use sparingly</h2>
+
+<pre>
+@media (max-width: 600px) {
+  body {
+    font-size: 100%;
+  }
+  table {
+    font-size: 75%;
+  }
+}
+</pre>
 
     <h2>Points to make</h2>
 
@@ -72,12 +123,16 @@
       <li>Don't assume window size is constant.
     </ul>
 
+    <h2>Use Javascript for menus & touch</h2>
+
     <h2>Further reading</h2>
 
     <ul>
       <li>W3C
       article: <a href="http://www.w3.org/Style/Examples/007/units.en.html">“EM,
-      PX, PT, CM, IN, ...”</a>
+          PX, PT, CM, IN, ...”</a>
+      <li><a href="https://www.google.com/webmasters/tools/mobile-friendly/">Google
+          Mobile-Friendly Test Tool</a>
     </ul>
   </body>
 </html>
