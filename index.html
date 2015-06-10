@@ -3,9 +3,11 @@
   <head>
     <meta charset='utf-8'>
     <link href="stylesheet.css" media="all" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <title>Making a web page mobile-friendly</title>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
   </head>
   <body>
     <h1>Making a web page mobile-friendly</h1>
@@ -67,7 +69,7 @@
 
     <h2>Mobile friendly rule #1: Set the viewport</h2>
 
-    <pre>&lt;meta content='width=device-width, initial-scale=1' name='viewport'&gt;</pre>
+    <pre><code>&lt;meta content='width=device-width, initial-scale=1' name='viewport'&gt;</code></pre>
 
     <p>Coming soon:
       <a href="http://dev.w3.org/csswg/css-device-adapt/">CSS @viewport</a>
@@ -75,55 +77,83 @@
 
     <h2>Mobile friendly rule #2: Limit widths</h2>
 
-    <pre>img { max-width: 100%; }</pre>
+    <pre><code>img { max-width: 100%; }</code></pre>
 
     <h2>Mobile friendly rule #3: Let things wrap</h2>
 
-    <pre>
-table.wrap {
+    <pre><code>table.wrap {
   float: left;
 }
 
 .clear {
   clear: both;
-}
-    </pre>
+}</code></pre>
 
     <h2>Use relative <i>em</i> sizes</h2>
 
     <p>
-      Using <i>px</i> sizes is unfriendly.
+      Using <i>px</i> sizes is unfriendly especially across devices.
     </p>
+
+    <p>
+      Common problem (for me, at least): layered percentages.
+    </p>
+
+    <div id="box1">80% text
+      <div id="box2">80%×80% text
+        <div id="box3">original size?
+        </div>
+      </div>
+    </div>
 
     <h2>Use high-resolution images</h2>
 
     <p>
-      1 px ≠ 1 pixel (!!!)<br/>
-      Set size in em?
+      1 px ≠ 1 pixel (!!!)<br>
+      Set size in em?<br>
+      SVG?
     </p>
 
     <h2>Media queries: use sparingly</h2>
 
-<pre>
-@media (max-width: 600px) {
+<pre><code>@media (max-width: 600px) {
   body {
     font-size: 100%;
   }
   table {
     font-size: 75%;
   }
-}
-</pre>
-
-    <h2>Points to make</h2>
-
-    <ul>
-      <li>W3 recommends not using absolute font sizes, but then
-      layered percentages become impossible to manage. Use rem?
-      <li>Don't assume window size is constant.
-    </ul>
+}</code></pre>
 
     <h2>Use Javascript for menus & touch</h2>
+
+    <div id="swipebox" style="border: 1px solid black;">
+      <span id="start">Swipe</span> → <span id="end">me</span>
+    </div>
+
+<pre><code>function getCoords(event) {
+  return [Math.round(event.originalEvent.touches[0].pageX),
+          Math.round(event.originalEvent.touches[0].pageY)]
+}
+
+function getCoordsEnd(event) {
+  return [Math.round(event.originalEvent.changedTouches[0].pageX),
+          Math.round(event.originalEvent.changedTouches[0].pageY)]
+}
+
+$("#swipebox").on("touchstart",function(event) {
+  event.preventDefault();
+  $("#start").text(getCoords(event))
+  $("#end").text("")
+})
+
+$("#swipebox").on("touchend",function(event) {
+  event.preventDefault()
+  $("#end").text(getCoordsEnd(event))
+})</code></pre>
+
+    <p>Note: don't assume viewport size is constant, and 100% height
+    is poorly defined at least on Android.</p>
 
     <h2>Further reading</h2>
 
@@ -133,6 +163,9 @@ table.wrap {
           PX, PT, CM, IN, ...”</a>
       <li><a href="https://www.google.com/webmasters/tools/mobile-friendly/">Google
           Mobile-Friendly Test Tool</a>
+      <li><a href="http://exisweb.net/responsive-table-plugins-and-patterns">10+
+          Solutions for Responsive Data Tables</a>
+      <li><a href="http://demos.jquerymobile.com/1.2.0/">JQuery Mobile</a>
     </ul>
   </body>
 </html>

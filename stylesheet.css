@@ -10,3 +10,26 @@ table td,th {
 body {
   font-size: 32px;
 }
+
+div {
+  padding: 1em;
+  margin: 1em;
+}
+
+#box1 {
+  border: 1px solid red;
+  font-size: 80%;
+  width: 12em;
+}
+
+#box2 {
+  border: 1px solid blue;
+  font-size: 80%;
+  width: 10em;
+}
+
+#box3 {
+  border: 1px solid green;
+  font-size: 156%;
+  width: 3em;
+}
